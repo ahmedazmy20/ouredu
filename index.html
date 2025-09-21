@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  </head>
+  <body class="font-sans text-gray-800">
+    <!-- Navbar -->
+    <header class="bg-white py-1 md:py-0 fixed top-0 right-0 w-full z-50">
+      <div
+        class="container max-w-[75rem] mx-auto px-6 py-2 flex items-center justify-between relative">
+        <!-- Mobile Menu Button (يمين في الموبايل) -->
+        <button id="menu-btn" class="lg:hidden text-2xl md:order-1">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Logo (في النص في الموبايل بالظبط) -->
+        <img
+          src="./imgs/logo.png"
+          class="w-auto h-12 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 order-2 lg:order-none"
+          alt="Logo" />
+
+        <!-- Links (بتظهر بس في الديسكتوب) -->
+        <nav
+          class="hidden lg:flex space-x-6 space-x-reverse order-3 lg:order-none">
+          <a href="#home" class="hover:text-blue-600 font-bold text-lg nav-link"
+            >الرئيسية</a
+          >
+          <a
+            href="#about"
+            class="hover:text-blue-600 font-bold text-lg nav-link"
+            >عن تعليمنا للاستثمار</a
+          >
+          <a
+            href="#products"
+            class="hover:text-blue-600 font-bold text-lg nav-link"
+            >منتجاتنا</a
+          >
+          <a href="#blog" class="hover:text-blue-600 font-bold text-lg nav-link"
+            >المدونة</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-blue-600 font-bold text-lg nav-link"
+            >اتصل بنا</a
+          >
+          <button
+            id="langBtn"
+            class="hover:text-blue-600 mx-5 font-bold text-lg cursor-pointer">
+            العربية
+          </button>
+        </nav>
+
+        <!-- Icons (شمال في الموبايل) -->
+        <div
+          class="flex justify-center items-center gap-3 md:gap-4 space-x-reverse order-3 lg:order-none">
+          <button class="text-xl">
+            <i
+              class="fa-brands fa-facebook-f text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+          </button>
+          <button class="text-xl">
+            <i
+              class="fa-brands fa-twitter text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+          </button>
+          <button class="text-xl">
+            <i
+              class="fa-brands fa-instagram text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+          </button>
+          <button class="text-xl">
+            <i
+              class="fa-brands fa-linkedin-in text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="menu"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-md transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+        <ul class="flex flex-col space-y-4 px-6 py-4 text-right">
+          <li>
+            <a href="#home" class="hover:text-blue-600 nav-link">الرئيسية</a>
+          </li>
+          <li>
+            <a href="#about" class="hover:text-blue-600 nav-link"
+              >عن تعليمنا للاستثمار</a
+            >
+          </li>
+          <li>
+            <a href="#products" class="hover:text-blue-600 nav-link"
+              >منتجاتنا</a
+            >
+          </li>
+          <li>
+            <a href="#blog" class="hover:text-blue-600 nav-link">المدونة</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-blue-600 nav-link">اتصل بنا</a>
+          </li>
+          <li>
+            <button id="langBtnMobile" class="hover:text-blue-600">
+              العربية
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- Overlay -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-[#3c3c3c8e] transition-all bg-opacity-50 hidden z-40 md:hidden"></div>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <!-- section 1 -->
+      <section   id="home" class="px-2 md:px-0">
+        <div
+          style="
+            background-image: url('./imgs/تعليمنا.png');
+          "
+          class="md:h-screen rounded-xl min-h-[31rem] bg-right-bottom md:bg-center flex flex-col justify-center items-center md:items-end max-w-[82rem] mx-auto py-5 md:pt-16">
+          <div
+            class="card flex flex-col items-center md:items-start max-w-[32rem] gap-7 xl:me-20 mt-52 md:mt-0">
+            <h2
+              class="text-2xl md:text-6xl font-semibold px-11 text-center md:text-start md:px-0">
+              نطوع التكنولوجيا <br class="hidden md:block" />
+              لخدمة المستقبل
+            </h2>
+            <p
+              class="text-xs md:text-base text-center md:text-start px-11 md:px-0">
+              حلول تكنولوجيه مبتكره تسهل العمليات اليوميه لمختلف المؤساسات
+              <br class="hidden lg:block" />وعملائها. اكتشف كيف يمكن لحلولنا
+              المختلفه ان تحدث ثوره في مؤسستك
+            </p>
+            <button
+              class="border md:border-none rounded-xl bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-1 md:py-2 px-4 transition-all md:rounded-lg">
+              اعرف المزيد
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- section 2 -->
+      <section  id="about" class="bg-[#f9f9f9] px-10 md:px-20 pt-0">
+        <div>
+          <div class="relative w-full h-80 flex items-center justify-center">
+            <p class="text-[15rem] font-bold text-[#F1F1F1] hidden lg:block">
+              تعليمنا
+            </p>
+            <div
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-full max-w-[54rem]">
+              <h3 class="text-4xl font-bold mb-5 text-[#10A6E0]">
+                <span class="text-xl md:text-4xl"> نظام تعليمنا</span> لإدارة
+                العملية التعليمية
+              </h3>
+              <p class="text-slate-500">
+                نرسم خريطة المستقبل للأنظمة التعليمية، لإحداث تغيير حقيقي في
+                حياة المُتعلمين، والمُعلمين، والمؤسسات التعليمية على مستوى الشرق
+                الأوسط، في شركة تعليمنا نخدم:
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- الصورة -->
+            <div class="flex items-center justify-center order-1">
+              <img
+                src="./imgs/Shaping-future.png"
+                alt="img"
+                class="min-w-[20rem] max-w-full" />
+            </div>
+
+            <!-- cards -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-3 order-2 lg:order-1 md:py-5 md:px-8">
+              <div
+                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+                <p
+                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                  25,000
+                </p>
+                <h4 class="font-bold">طالب</h4>
+                <p>يستفيد يستفيد من خدماتنا المتقدمه بالفعل</p>
+              </div>
+              <div
+                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+                <p
+                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                  50,000
+                </p>
+                <h4 class="font-bold">ولى امر</h4>
+                <p>يتفاعلون ليعززوا الشراكة مع المدرسة</p>
+              </div>
+              <div
+                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+                <p
+                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                  3,000
+                </p>
+                <h4 class="font-bold">معلم</h4>
+                <p>
+                  يطورون من أساليبهم التعليمية من خلال المصادر المُقدمة والأدوات
+                  المُبتكرة
+                </p>
+              </div>
+              <div
+                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+                <p
+                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                  +6,250
+                </p>
+                <h4 class="font-bold">ساعه يوميا</h4>
+                <p>
+                  يقضيها المعلمون والطلاب واولياء الأمور على جميع حلولنا
+                  التعليمة
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section 3 -->
+      <section id="products" class="px-10 md:px-20 py-10">
+        <div >
+          <div
+            class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- img -->
+            <div class="flex items-center justify-center order-1 lg:order-2">
+              <img
+                src="./imgs/Education-partner.png"
+                alt="img"
+                class="min-w-[20rem] max-w-full" />
+            </div>
+
+            <!-- text -->
+            <div class="order-2 lg:order-1">
+              <h3
+                class="text-2xl md:text-3xl xl:text-5xl font- text-center md:text-start">
+                منصّة تعليمنا <br class="hidden md:block" />
+                <span class="md:hidden">...</span> شريك
+                <span class="text-[#1796E2]">واحد</span> <br />
+                لكل متطلبات التعليم
+              </h3>
+              <p
+                class="text-sm text-start md:text-lg md:text-start my-6 lg:pe-16">
+                نظام تعليمي شامل، وفعال وقوي تجده في منصتنا، لأننا نضع معك نظام
+                التعلم المناسب لمؤسستك التعليمية، لنخدم المعلمين، والطُلاب
+                وأولياء الأمور.
+              </p>
+
+              <button
+                class="rounded-md bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">
+                المزيد من المعلومات
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section 4 -->
+      <section id="blog" class="py-10">
+        <div  class=" bg-gradient-to-b from-blue-500 to-blue-400" >
+          <div
+            class="xl:px-16 py-10 min-h-screen max-w-[82rem]  mx-auto grid i grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- img -->
+            <div class="flex items-center justify-center order-1 lg:order-2">
+              <img
+                src="./imgs/Advantage.png"
+                alt="img"
+                class="min-w-[20rem] max-w-full" />
+            </div>
+
+            <!-- text -->
+            <div class="order-2 lg:order-1 text-white">
+              <p
+                class="text-sm text-start md:text-lg md:text-start my-6 lg:pe-16">
+                لماذا نظام تعليمنا؟ كم تطبيق تحتاج لإدارة أي منظومة تعليمية؟
+              </p>
+              <h3 class="text-2xl md:text-3xl xl:text-4xl leading-14">
+                لأننا نُقدم لكم العديد من المميزات التي تُسهل عملية التعلم في حل
+                واحد متكامل
+              </h3>
+
+              <!-- div that contains 4 cards where each card has number and heading and paragraph -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-2  gap-10 mt-10">
+                <div class="flex  gap-4  px-6">
+                  <p class="text-4xl font-bold"> 1.</p>
+                  <div>
+                    <h3 class="text-xl ">
+                    تعليم متطور
+                  </h3>
+                  <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
+                    لدينا العديد من المميزات التي تُسهل عملية التعلم في حل واحد
+                    متكامل
+                  </p>
+                  </div>
+                </div>
+
+                <div class="flex  gap-4  px-6">
+                  <p class="text-4xl font-bold"> 2.</p>
+                  <div>
+                    <h3 class="text-xl ">
+                    تسهيل التعلم
+                  </h3>
+                  <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
+                      لدينا العديد من المميزات التي تُسهل عملية التعلم في حل واحد
+                    متكامل
+                  </p>
+                  </div>
+                </div>
+
+                <div class="flex  gap-4  px-6">
+                  <p class="text-4xl font-bold"> 3.</p>
+                  <div>
+                    <h3 class="text-xl">
+                   النمو المؤسسي
+                  </h3>
+                  <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
+                    عزز نمو مؤسستك من خلال حلولنا.
+                  </p>
+                  </div>
+                </div>
+
+                <div class="flex  gap-4  px-6">
+                  <p class="text-4xl font-bold"> 4.</p>
+                  <div>
+                    <h3 class="text-xl">
+                       تعليم مُعَد بدقة ليُناسب تقدم المستقبل                 
+                    </h3>
+                  <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
+                    باستخدام أحدث أدوات التعلم في القرن الحادي والعشرين.
+                  </p>
+                  </div>
+                </div>
+              </div>
+              <button class="rounded-md mt-4 ms-4 bg-[#FFFFFF] hover:bg-[#d7d4d4] text-black flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">أطلب عرض تجريبي الآن</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center py-6">
+      <p>&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
