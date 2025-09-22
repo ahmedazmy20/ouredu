@@ -1,357 +1,617 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task</title>
-    <link href="./src/output.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  </head>
-  <body class="font-sans text-gray-800">
-    <!-- Navbar -->
-    <header class="bg-white py-1 md:py-0 fixed top-0 right-0 w-full z-50">
-      <div
-        class="container max-w-[75rem] mx-auto px-6 py-2 flex items-center justify-between relative">
-        <!-- Mobile Menu Button (يمين في الموبايل) -->
-        <button id="menu-btn" class="lg:hidden text-2xl md:order-1">
-          <i class="fa-solid fa-bars"></i>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task</title>
+  <link href="./src/output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body class="font-sans text-gray-800">
+  <!-- Navbar -->
+  <header class="bg-white py-1 md:py-0 fixed top-0 right-0 w-full z-50">
+    <div class="container max-w-[75rem] mx-auto px-6 py-2 flex items-center justify-between relative">
+      <!-- Mobile Menu Button (يمين في الموبايل) -->
+      <button id="menu-btn" class="lg:hidden text-2xl md:order-1">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Logo (في النص في الموبايل بالظبط) -->
+      <img src="./imgs/logo.png"
+        class="w-auto h-12 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 order-2 lg:order-none"
+        alt="Logo" />
+
+      <!-- Links (بتظهر بس في الديسكتوب) -->
+      <nav class="hidden lg:flex space-x-6 space-x-reverse order-3 lg:order-none">
+        <a href="#home" class="hover:text-blue-600 font-bold text-lg nav-link">الرئيسية</a>
+        <a href="#about" class="hover:text-blue-600 font-bold text-lg nav-link">عن تعليمنا للاستثمار</a>
+        <a href="#products" class="hover:text-blue-600 font-bold text-lg nav-link">منتجاتنا</a>
+        <a href="#blog" class="hover:text-blue-600 font-bold text-lg nav-link">المدونة</a>
+        <a href="#contact" class="hover:text-blue-600 font-bold text-lg nav-link">اتصل بنا</a>
+        <button id="langBtn" class="hover:text-blue-600 mx-5 font-bold text-lg cursor-pointer">
+          العربية
         </button>
+      </nav>
 
-        <!-- Logo (في النص في الموبايل بالظبط) -->
-        <img
-          src="./imgs/logo.png"
-          class="w-auto h-12 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 order-2 lg:order-none"
-          alt="Logo" />
+      <!-- Icons (شمال في الموبايل) -->
+      <div class="flex justify-center items-center gap-3 md:gap-4 space-x-reverse order-3 lg:order-none">
+        <button class="text-xl">
+          <i class="fa-brands fa-facebook-f text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+        </button>
+        <button class="text-xl">
+          <i class="fa-brands fa-twitter text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+        </button>
+        <button class="text-xl">
+          <i class="fa-brands fa-instagram text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+        </button>
+        <button class="text-xl">
+          <i class="fa-brands fa-linkedin-in text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
+        </button>
+      </div>
+    </div>
 
-        <!-- Links (بتظهر بس في الديسكتوب) -->
-        <nav
-          class="hidden lg:flex space-x-6 space-x-reverse order-3 lg:order-none">
-          <a href="#home" class="hover:text-blue-600 font-bold text-lg nav-link"
-            >الرئيسية</a
-          >
-          <a
-            href="#about"
-            class="hover:text-blue-600 font-bold text-lg nav-link"
-            >عن تعليمنا للاستثمار</a
-          >
-          <a
-            href="#products"
-            class="hover:text-blue-600 font-bold text-lg nav-link"
-            >منتجاتنا</a
-          >
-          <a href="#blog" class="hover:text-blue-600 font-bold text-lg nav-link"
-            >المدونة</a
-          >
-          <a
-            href="#contact"
-            class="hover:text-blue-600 font-bold text-lg nav-link"
-            >اتصل بنا</a
-          >
-          <button
-            id="langBtn"
-            class="hover:text-blue-600 mx-5 font-bold text-lg cursor-pointer">
+    <!-- Mobile Menu -->
+    <div id="menu"
+      class="fixed top-0 left-0 h-full w-64 bg-white shadow-md transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+      <ul class="flex flex-col space-y-4 px-6 py-4 text-right">
+        <li>
+          <a href="#home" class="hover:text-blue-600 nav-link">الرئيسية</a>
+        </li>
+        <li>
+          <a href="#about" class="hover:text-blue-600 nav-link">عن تعليمنا للاستثمار</a>
+        </li>
+        <li>
+          <a href="#products" class="hover:text-blue-600 nav-link">منتجاتنا</a>
+        </li>
+        <li>
+          <a href="#blog" class="hover:text-blue-600 nav-link">المدونة</a>
+        </li>
+        <li>
+          <a href="#contact" class="hover:text-blue-600 nav-link">اتصل بنا</a>
+        </li>
+        <li>
+          <button id="langBtnMobile" class="hover:text-blue-600">
             العربية
           </button>
-        </nav>
+        </li>
+      </ul>
+    </div>
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-[#3c3c3c8e] transition-all bg-opacity-50 hidden z-40 md:hidden"></div>
+  </header>
 
-        <!-- Icons (شمال في الموبايل) -->
-        <div
-          class="flex justify-center items-center gap-3 md:gap-4 space-x-reverse order-3 lg:order-none">
-          <button class="text-xl">
-            <i
-              class="fa-brands fa-facebook-f text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
-          </button>
-          <button class="text-xl">
-            <i
-              class="fa-brands fa-twitter text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
-          </button>
-          <button class="text-xl">
-            <i
-              class="fa-brands fa-instagram text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
-          </button>
-          <button class="text-xl">
-            <i
-              class="fa-brands fa-linkedin-in text-sm cursor-pointer text-gray-700 transition-all hover:text-black"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div
-        id="menu"
-        class="fixed top-0 left-0 h-full w-64 bg-white shadow-md transform -translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
-        <ul class="flex flex-col space-y-4 px-6 py-4 text-right">
-          <li>
-            <a href="#home" class="hover:text-blue-600 nav-link">الرئيسية</a>
-          </li>
-          <li>
-            <a href="#about" class="hover:text-blue-600 nav-link"
-              >عن تعليمنا للاستثمار</a
-            >
-          </li>
-          <li>
-            <a href="#products" class="hover:text-blue-600 nav-link"
-              >منتجاتنا</a
-            >
-          </li>
-          <li>
-            <a href="#blog" class="hover:text-blue-600 nav-link">المدونة</a>
-          </li>
-          <li>
-            <a href="#contact" class="hover:text-blue-600 nav-link">اتصل بنا</a>
-          </li>
-          <li>
-            <button id="langBtnMobile" class="hover:text-blue-600">
-              العربية
-            </button>
-          </li>
-        </ul>
-      </div>
-      <!-- Overlay -->
-      <div
-        id="overlay"
-        class="fixed inset-0 bg-[#3c3c3c8e] transition-all bg-opacity-50 hidden z-40 md:hidden"></div>
-    </header>
-
-    <!-- Hero -->
-    <main>
-      <!-- section 1 -->
-      <section   id="home" class="px-2 md:px-0">
-        <div
-          style="
+  <!-- Hero -->
+  <main>
+    <!-- section 1 -->
+    <section id="home" class="px-2 md:px-0">
+      <div style="
             background-image: url('./imgs/تعليمنا.png');
           "
-          class="md:h-screen rounded-xl min-h-[31rem] bg-right-bottom md:bg-center flex flex-col justify-center items-center md:items-end max-w-[82rem] mx-auto py-5 md:pt-16">
+        class="md:h-screen rounded-xl min-h-[31rem] bg-right-bottom md:bg-center flex flex-col justify-center items-center md:items-end max-w-[82rem] mx-auto py-5 md:pt-16">
+        <div class="card flex flex-col items-center md:items-start max-w-[32rem] gap-7 xl:me-20 mt-52 md:mt-0">
+          <h2 class="text-2xl md:text-6xl font-semibold px-11 text-center md:text-start md:px-0">
+            نطوع التكنولوجيا <br class="hidden md:block" />
+            لخدمة المستقبل
+          </h2>
+          <p class="text-xs md:text-base text-center md:text-start px-11 md:px-0">
+            حلول تكنولوجيه مبتكره تسهل العمليات اليوميه لمختلف المؤساسات
+            <br class="hidden lg:block" />وعملائها. اكتشف كيف يمكن لحلولنا
+            المختلفه ان تحدث ثوره في مؤسستك
+          </p>
+          <button
+            class="border md:border-none rounded-xl bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-1 md:py-2 px-4 transition-all md:rounded-lg">
+            اعرف المزيد
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 2 -->
+    <section id="about" class="bg-[#f9f9f9] px-10 md:px-20 pt-0">
+      <div>
+        <div class="relative w-full h-80 flex items-center justify-center">
+          <p class="text-[15rem] font-bold text-[#F1F1F1] hidden lg:block">
+            تعليمنا
+          </p>
           <div
-            class="card flex flex-col items-center md:items-start max-w-[32rem] gap-7 xl:me-20 mt-52 md:mt-0">
-            <h2
-              class="text-2xl md:text-6xl font-semibold px-11 text-center md:text-start md:px-0">
-              نطوع التكنولوجيا <br class="hidden md:block" />
-              لخدمة المستقبل
-            </h2>
-            <p
-              class="text-xs md:text-base text-center md:text-start px-11 md:px-0">
-              حلول تكنولوجيه مبتكره تسهل العمليات اليوميه لمختلف المؤساسات
-              <br class="hidden lg:block" />وعملائها. اكتشف كيف يمكن لحلولنا
-              المختلفه ان تحدث ثوره في مؤسستك
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-full max-w-[54rem]">
+            <h3 class="text-4xl font-bold mb-5 text-[#10A6E0]">
+              <span class="text-xl md:text-4xl"> نظام تعليمنا</span> لإدارة
+              العملية التعليمية
+            </h3>
+            <p class="text-slate-500">
+              نرسم خريطة المستقبل للأنظمة التعليمية، لإحداث تغيير حقيقي في
+              حياة المُتعلمين، والمُعلمين، والمؤسسات التعليمية على مستوى الشرق
+              الأوسط، في شركة تعليمنا نخدم:
             </p>
+          </div>
+        </div>
+
+        <div class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- الصورة -->
+          <div class="flex items-center justify-center order-1">
+            <img src="./imgs/Shaping-future.png" alt="img" class="min-w-[20rem] max-w-full" />
+          </div>
+
+          <!-- cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 order-2 lg:order-1 md:py-5 md:px-8">
+            <div
+              class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+              <p
+                class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                25,000
+              </p>
+              <h4 class="font-bold">طالب</h4>
+              <p>يستفيد يستفيد من خدماتنا المتقدمه بالفعل</p>
+            </div>
+            <div
+              class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+              <p
+                class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                50,000
+              </p>
+              <h4 class="font-bold">ولى امر</h4>
+              <p>يتفاعلون ليعززوا الشراكة مع المدرسة</p>
+            </div>
+            <div
+              class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+              <p
+                class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                3,000
+              </p>
+              <h4 class="font-bold">معلم</h4>
+              <p>
+                يطورون من أساليبهم التعليمية من خلال المصادر المُقدمة والأدوات
+                المُبتكرة
+              </p>
+            </div>
+            <div
+              class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
+              <p
+                class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
+                +6,250
+              </p>
+              <h4 class="font-bold">ساعه يوميا</h4>
+              <p>
+                يقضيها المعلمون والطلاب واولياء الأمور على جميع حلولنا
+                التعليمة
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 3 -->
+    <section id="products" class="px-10 md:px-20 py-10">
+      <div>
+        <div class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- img -->
+          <div class="flex items-center justify-center order-1 lg:order-2">
+            <img src="./imgs/Education-partner.png" alt="img" class="min-w-[20rem] max-w-full" />
+          </div>
+
+          <!-- text -->
+          <div class="order-2 lg:order-1">
+            <h3 class="text-2xl md:text-3xl xl:text-5xl font- text-center md:text-start">
+              منصّة تعليمنا <br class="hidden md:block" />
+              <span class="md:hidden">...</span> شريك
+              <span class="text-[#1796E2]">واحد</span> <br />
+              لكل متطلبات التعليم
+            </h3>
+            <p class="text-sm text-start md:text-lg md:text-start my-6 lg:pe-16">
+              نظام تعليمي شامل، وفعال وقوي تجده في منصتنا، لأننا نضع معك نظام
+              التعلم المناسب لمؤسستك التعليمية، لنخدم المعلمين، والطُلاب
+              وأولياء الأمور.
+            </p>
+
             <button
-              class="border md:border-none rounded-xl bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-1 md:py-2 px-4 transition-all md:rounded-lg">
-              اعرف المزيد
+              class="rounded-md bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">
+              المزيد من المعلومات
             </button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- section 2 -->
-      <section  id="about" class="bg-[#f9f9f9] px-10 md:px-20 pt-0">
-        <div>
-          <div class="relative w-full h-80 flex items-center justify-center">
-            <p class="text-[15rem] font-bold text-[#F1F1F1] hidden lg:block">
-              تعليمنا
+    <!-- section 4 -->
+    <section id="blog" class="py-10">
+      <div class=" bg-gradient-to-b from-blue-500 to-blue-400">
+        <div class="xl:px-16 py-10 min-h-screen max-w-[82rem]  mx-auto grid i grid-cols-1 lg:grid-cols-2 gap-x-10">
+          <!-- img -->
+          <div class="flex items-center justify-center order-1 lg:order-2">
+            <img src="./imgs/Advantage.png" alt="img" class="min-w-[20rem] max-w-full" />
+          </div>
+
+          <!-- text -->
+          <div class="order-2 lg:order-1 text-white   px-10">
+            <p class="text-sm text-start md:text-lg md:text-start mb-2 md:my-6  lg:pe-16">
+              لماذا نظام تعليمنا؟ كم تطبيق تحتاج لإدارة أي منظومة تعليمية؟
             </p>
-            <div
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-full max-w-[54rem]">
-              <h3 class="text-4xl font-bold mb-5 text-[#10A6E0]">
-                <span class="text-xl md:text-4xl"> نظام تعليمنا</span> لإدارة
-                العملية التعليمية
-              </h3>
-              <p class="text-slate-500">
-                نرسم خريطة المستقبل للأنظمة التعليمية، لإحداث تغيير حقيقي في
-                حياة المُتعلمين، والمُعلمين، والمؤسسات التعليمية على مستوى الشرق
-                الأوسط، في شركة تعليمنا نخدم:
-              </p>
-            </div>
-          </div>
+            <h3 class="text-2xl md:text-3xl xl:text-4xl md:leading-14">
+              لأننا نُقدم لكم العديد من المميزات التي تُسهل عملية التعلم في حل
+              واحد متكامل
+            </h3>
 
-          <div
-            class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- الصورة -->
-            <div class="flex items-center justify-center order-1">
-              <img
-                src="./imgs/Shaping-future.png"
-                alt="img"
-                class="min-w-[20rem] max-w-full" />
-            </div>
-
-            <!-- cards -->
-            <div
-              class="grid grid-cols-1 sm:grid-cols-2 gap-3 order-2 lg:order-1 md:py-5 md:px-8">
-              <div
-                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
-                <p
-                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
-                  25,000
-                </p>
-                <h4 class="font-bold">طالب</h4>
-                <p>يستفيد يستفيد من خدماتنا المتقدمه بالفعل</p>
-              </div>
-              <div
-                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
-                <p
-                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
-                  50,000
-                </p>
-                <h4 class="font-bold">ولى امر</h4>
-                <p>يتفاعلون ليعززوا الشراكة مع المدرسة</p>
-              </div>
-              <div
-                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
-                <p
-                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
-                  3,000
-                </p>
-                <h4 class="font-bold">معلم</h4>
-                <p>
-                  يطورون من أساليبهم التعليمية من خلال المصادر المُقدمة والأدوات
-                  المُبتكرة
-                </p>
-              </div>
-              <div
-                class="bg-white px-6 py-10 rounded-2xl flex flex-col items-start justify-center gap-2 group hover:bg-[#1796E2] hover:text-white transition-all duration-300">
-                <p
-                  class="text-[#1796E2] group-hover:text-white text-4xl xl:text-5xl font-bold transition-all duration-300">
-                  +6,250
-                </p>
-                <h4 class="font-bold">ساعه يوميا</h4>
-                <p>
-                  يقضيها المعلمون والطلاب واولياء الأمور على جميع حلولنا
-                  التعليمة
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- section 3 -->
-      <section id="products" class="px-10 md:px-20 py-10">
-        <div >
-          <div
-            class="xl:px-16 py-10 max-w-[82rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- img -->
-            <div class="flex items-center justify-center order-1 lg:order-2">
-              <img
-                src="./imgs/Education-partner.png"
-                alt="img"
-                class="min-w-[20rem] max-w-full" />
-            </div>
-
-            <!-- text -->
-            <div class="order-2 lg:order-1">
-              <h3
-                class="text-2xl md:text-3xl xl:text-5xl font- text-center md:text-start">
-                منصّة تعليمنا <br class="hidden md:block" />
-                <span class="md:hidden">...</span> شريك
-                <span class="text-[#1796E2]">واحد</span> <br />
-                لكل متطلبات التعليم
-              </h3>
-              <p
-                class="text-sm text-start md:text-lg md:text-start my-6 lg:pe-16">
-                نظام تعليمي شامل، وفعال وقوي تجده في منصتنا، لأننا نضع معك نظام
-                التعلم المناسب لمؤسستك التعليمية، لنخدم المعلمين، والطُلاب
-                وأولياء الأمور.
-              </p>
-
-              <button
-                class="rounded-md bg-[#10a8e4] hover:bg-[#118dbe] text-white flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">
-                المزيد من المعلومات
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- section 4 -->
-      <section id="blog" class="py-10">
-        <div  class=" bg-gradient-to-b from-blue-500 to-blue-400" >
-          <div
-            class="xl:px-16 py-10 min-h-screen max-w-[82rem]  mx-auto grid i grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- img -->
-            <div class="flex items-center justify-center order-1 lg:order-2">
-              <img
-                src="./imgs/Advantage.png"
-                alt="img"
-                class="min-w-[20rem] max-w-full" />
-            </div>
-
-            <!-- text -->
-            <div class="order-2 lg:order-1 text-white">
-              <p
-                class="text-sm text-start md:text-lg md:text-start my-6 lg:pe-16">
-                لماذا نظام تعليمنا؟ كم تطبيق تحتاج لإدارة أي منظومة تعليمية؟
-              </p>
-              <h3 class="text-2xl md:text-3xl xl:text-4xl leading-14">
-                لأننا نُقدم لكم العديد من المميزات التي تُسهل عملية التعلم في حل
-                واحد متكامل
-              </h3>
-
-              <!-- div that contains 4 cards where each card has number and heading and paragraph -->
-              <div
-                class="grid grid-cols-1 md:grid-cols-2  gap-10 mt-10">
-                <div class="flex  gap-4  px-6">
-                  <p class="text-4xl font-bold"> 1.</p>
-                  <div>
-                    <h3 class="text-xl ">
+            <!-- div that contains 4 cards where each card has number and heading and paragraph -->
+            <div class="grid grid-cols-1 md:grid-cols-2  gap-10 mt-10">
+              <div class="flex  gap-4  px-2 md:px-6">
+                <p class="text-4xl font-bold"> 1.</p>
+                <div>
+                  <h3 class="text-xl ">
                     تعليم متطور
                   </h3>
                   <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
                     لدينا العديد من المميزات التي تُسهل عملية التعلم في حل واحد
                     متكامل
                   </p>
-                  </div>
                 </div>
+              </div>
 
-                <div class="flex  gap-4  px-6">
-                  <p class="text-4xl font-bold"> 2.</p>
-                  <div>
-                    <h3 class="text-xl ">
+              <div class="flex  gap-4  px-2 md:px-6">
+                <p class="text-4xl font-bold"> 2.</p>
+                <div>
+                  <h3 class="text-xl ">
                     تسهيل التعلم
                   </h3>
                   <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
-                      لدينا العديد من المميزات التي تُسهل عملية التعلم في حل واحد
+                    لدينا العديد من المميزات التي تُسهل عملية التعلم في حل واحد
                     متكامل
                   </p>
-                  </div>
                 </div>
+              </div>
 
-                <div class="flex  gap-4  px-6">
-                  <p class="text-4xl font-bold"> 3.</p>
-                  <div>
-                    <h3 class="text-xl">
-                   النمو المؤسسي
+              <div class="flex  gap-4  px-2 md:px-6">
+                <p class="text-4xl font-bold"> 3.</p>
+                <div>
+                  <h3 class="text-xl">
+                    النمو المؤسسي
                   </h3>
                   <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
                     عزز نمو مؤسستك من خلال حلولنا.
                   </p>
-                  </div>
                 </div>
+              </div>
 
-                <div class="flex  gap-4  px-6">
-                  <p class="text-4xl font-bold"> 4.</p>
-                  <div>
-                    <h3 class="text-xl">
-                       تعليم مُعَد بدقة ليُناسب تقدم المستقبل                 
-                    </h3>
+              <div class="flex  gap-4  px-2 md:px-6">
+                <p class="text-4xl font-bold"> 4.</p>
+                <div>
+                  <h3 class="text-xl">
+                    تعليم مُعَد بدقة ليُناسب تقدم المستقبل
+                  </h3>
                   <p class="text-sm md:text-lg md:text-start mt-4 text-slate-67500">
                     باستخدام أحدث أدوات التعلم في القرن الحادي والعشرين.
                   </p>
-                  </div>
                 </div>
               </div>
-              <button class="rounded-md mt-4 ms-4 bg-[#FFFFFF] hover:bg-[#d7d4d4] text-black flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">أطلب عرض تجريبي الآن</button>
+            </div>
+            <button
+              class="rounded-md  mt-4 ms-4 bg-[#FFFFFF] hover:bg-[#d7d4d4] text-black flex items-center justify-center py-2 md:py-2 px-5 transition-all md:rounded-lg">أطلب
+              عرض تجريبي الآن</button>
           </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center py-6">
-      <p>&copy; 2025 جميع الحقوق محفوظة</p>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- section 5 -->
+    <section>
+      <div class="container mx-auto flex flex-col items-center py-10">
+        <div class="header flex flex-col items-center">
+          <p class="text-[#828384]">حلول لخدمة مختلف المجالات وليس التعليم فقط</p>
+          <h2 class="text-2xl md:text-5xl my-2">استكشف <span class="text-[#10a8e4]">منتجاتنا الآخرى</span></h2>
+
+        </div>
+
+        <div class=" grid max-w-[70rem] grid-cols-1 p-2 md:grid-cols-3 gap-4 mt-10">
+
+          <div class="card text-center  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500  ">
+            <div
+              class="relative overflow-hidden px-4 rounded-2xl group-hover:bg-[#505151dd] transition-all duration-500">
+              <img src="./imgs/نظام-اداراره-الجمعيات-الخيرية.png" alt="Card 1 Image"
+                class="w-full h-auto mb-4 group-hover:scale-110 transition-all duration-500">
+              <div
+                class="absolute top-2 left-2  opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white flex flex-col gap-2">
+                <i class="fa-solid fa-maximize cursor-pointer"></i>
+                <i class="fa-solid fa-share-nodes cursor-pointer"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm font-semibold md:text-lg  py-4">نظام ادارة الجمعيات الخيريه</p>
+          </div>
+
+          <div class="card text-center  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500">
+            <div
+              class="relative overflow-hidden px-4 rounded-2xl group-hover:bg-[#505151dd] transition-all duration-500">
+              <img src="./imgs/تطوير-المحتوي-التعليمي.png" alt="Card 1 Image"
+                class="w-full h-auto mb-4 group-hover:scale-110 transition-all duration-500">
+              <div
+                class="absolute top-2 left-2  opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white flex flex-col gap-2">
+                <i class="fa-solid fa-maximize cursor-pointer"></i>
+                <i class="fa-solid fa-share-nodes cursor-pointer"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm font-semibold md:text-lg  py-4">تطوير المحتوي التعبليمي</p>
+          </div>
+
+          <div class="card text-center  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500  ">
+            <div
+              class="relative overflow-hidden px-4 rounded-2xl group-hover:bg-[#505151dd] transition-all duration-500">
+              <img src="./imgs/zaki.png" alt="Card 1 Image"
+                class="w-full h-auto mb-4 group-hover:scale-110 transition-all duration-500">
+              <div
+                class="absolute top-2 left-2  opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white flex flex-col gap-2">
+                <i class="fa-solid fa-maximize cursor-pointer"></i>
+                <i class="fa-solid fa-share-nodes cursor-pointer"></i>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm font-semibold md:text-lg  py-4">المساعد الذكي للمعلم</p>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      </div>
+
+
+      </div>
+
+    </section>
+
+    <!-- section 6 -->
+    <section>
+      <div class="bg-gradient-to-b from-[#10a8e4] via-[#10a8e4]  to-[#76bfdc] mt-20 py-16">
+        <div class="container max-w-[70rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+
+          <!-- text -->
+          <div class="text-white">
+            <p class="text-base md:text-lg">حلول تكنولوجية مختلفة</p>
+            <h2 class="text-xl md:text-4xl font-bold py-4 leading-relaxed">
+              لدينا العديد من الحلول التي تسهّل العمليات اليومية لمختلف المؤسسات
+            </h2>
+            <p class="text-base md:text-lg mb-6 text-[#d3d8dac5]">
+              يتمضن ذلك حلول لإدارة العملية التعليمية، حلول لإدارة التدريب، حلول لإدارة الجمعيات الخيرة، وغيرها...
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button class="bg-white text-black rounded-md px-6 py-2 hover:bg-[#c2c2c2] transition-all cursor-pointer">
+                اعرف المزيد
+              </button>
+              <button
+                class="bg-transparent border border-gray-300 rounded-md text-white px-6 py-2 hover:border-white transition-all cursor-pointer">
+                انضم لعملاء تعليمنا
+              </button>
+            </div>
+          </div>
+
+          <!-- الإحصائيات -->
+          <div class="text-white flex flex-col gap-6  border-r ">
+
+            <div class="flex justify-between border-b pb-6 lg:pb-16 px-10 lg:px-28 md:mt-10 items-center">
+              <div class="flex flex-col items-center gap-2">
+                <p class="text-sm md:text-lg">عدد المنتجات</p>
+                <p class="text-xl md:text-5xl font-bold">7</p>
+              </div>
+              <div class="flex flex-col items-center gap-2">
+                <p class="text-sm md:text-lg">عدد الخدمات</p>
+                <p class="text-xl md:text-5xl font-bold">11</p>
+              </div>
+            </div>
+
+            <div class="flex justify-between pb-6 px-10 lg:px-28 md:mt-10 items-center">
+              <div class="flex flex-col items-center gap-2">
+                <p class="text-sm md:text-lg">عدد المستفيدين</p>
+                <p class="text-xl md:text-5xl font-bold">1.4M+</p>
+              </div>
+              <div class="flex flex-col items-center gap-2">
+                <p class="text-sm md:text-lg">عدد العملاء</p>
+                <p class="text-xl md:text-5xl font-bold">46</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- section 7 -->
+    <section>
+      <div class=" bg-[#F9F9F9]">
+        <div class="container mx-auto flex flex-col items-center py-28">
+          <div class="header flex flex-col items-center">
+            <p> لست متأكدًا بعد؟</p>
+            <h2 class="text-2xl md:text-5xl my-2">ما قاله عملاؤنا عنّا</h2>
+          </div>
+
+          <div class=" grid max-w-[70rem] grid-cols-1 p-4 md:p-2 md:grid-cols-3 gap-4 mt-10">
+
+            <div
+              class="card text-center bg-white  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500 flex flex-col justify-center items-center px-4 py-5">
+              <div>
+                <img src="./imgs/person3.jpg" alt="Card 1 Image" class="w-24  rounded-full h-auto">
+              </div>
+              <p class="text-gray-600 text-sm  md:text-lg  py-4">منصة تعليمنا أثبتت أنها رائدة في مجال
+                الاستثمار في التعليم، لأنها حقاً جعلتنا في الصفوف الأولى من بين المؤسسات.</p>
+              <p class="text-gray-600 text-sm  md:text-lg"><span class="font-bold">محمد بن عبدالله
+                  الخزيم</span>-مدير علمي</p>
+            </div>
+
+            <div
+              class="card text-center bg-white  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500 flex flex-col justify-center items-center p-4">
+              <div>
+                <img src="./imgs/person2.jpg" alt="Card 1 Image" class="w-24  rounded-full h-auto">
+              </div>
+              <p class="text-gray-600 text-sm  md:text-lg  py-4">منصة تعليمنا ساهمت بشكل كبير في تغيير طريق
+                تدريسنا، فأصبح المعلمون أكثر تفاعلاً مع الطُلاب، وهذا أحدث اختلافاً ملحوظاً ونمواً في مستوى الطُلاب.</p>
+              <p class="text-gray-600 text-sm  md:text-lg "><span class="font-bold">مساعد بن عبدالرحمن
+                </span>-مدير الشؤون</p>
+            </div>
+
+            <div
+              class="card text-center bg-white  shadow-md rounded-lg  group hover:shadow-lg transition-all duration-500 flex flex-col justify-center items-center p-4">
+              <div>
+                <img src="./imgs/person1.jpg" alt="Card 1 Image" class="w-24  rounded-full h-auto">
+              </div>
+              <p class="text-gray-600 text-sm  md:text-lg  py-4">منصة تعليمنا أثبتت أنها رائدة في مجال
+                الاستثمار في التعليم، لأنها حقاً جعلتنا في الصفوف الأولى من بين المؤسسات.</p>
+              <p class="text-gray-600 text-sm  md:text-lg "><span class="font-bold">ناصر بن حمد الناصر</span>-مدير
+                ثانوي عرقه</p>
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- section 8 -->
+    <section>
+      <div class="container mx-auto flex flex-col items-center py-10 max-w-[58rem]">
+        <div class="header flex flex-col items-center">
+          <p class="text-[#828384]">حلول لخدمة مختلف المجالات وليس التعليم فقط</p>
+          <h2 class="text-2xl md:text-5xl my-2">استكشف <span class="text-[#10a8e4]">منتجاتنا الآخرى</span></h2>
+
+        </div>
+
+        <div class=" grid max-w-[70rem] px-5 md:px-0 grid-cols-1 p-2 md:grid-cols-3 gap-4 mt-10">
+
+          <div class="card group/card text-center shadow-md rounded-lg hover:shadow-lg transition-all duration-500">
+            <div class="relative overflow-hidden rounded-2xl transition-all duration-500">
+              <div>
+                <img src="./imgs/حلول.png" alt="Card 1 Image"
+                  class="block w-full h-auto group-hover/card:scale-110 transition-all duration-500 relative">
+                <div
+                  class="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover/card:opacity-50 transition-opacity duration-500">
+                </div>
+              </div>
+              <div class="absolute top-2 right-2 bg-white flex flex-col p-2 rounded-lg">
+                <span>26</span>
+                <span>مارس</span>
+              </div>
+            </div>
+
+            <div class="px-8 mt-3 flex flex-col gap-4">
+              <p class="text-gray-600 text-sm font-semibold md:text-2xl mt-3">
+                كيف تساعد «تعليمنا» في تتبّع تقدّم الطُلّاب وتحليل أدائهم؟
+              </p>
+              <i class="fa-solid fas fa-share-alt cursor-pointer fa-beat text-slate-500"></i>
+              <p class="text-gray-400 text-sm">
+                يعتبر تتبع أداء الطلاب وتحليل بياناتهم أحد العوامل الأساسية في تحسين جودة التعليم، حيث يساعد
+                المُعلّمين على فهم نقاط القوة والضعف لدى ا...
+              </p>
+
+              <!-- group خاصة بمتابعه القراءة -->
+              <span class="text-[#10a8e4] cursor-pointer inline-block group/two mb-5">
+                متابعه القراءة
+                <span class="opacity-0 group-hover/two:opacity-100 transition-opacity duration-500">...</span>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="card group/card text-center shadow-md rounded-lg hover:shadow-lg transition-all duration-500">
+            <div class="relative overflow-hidden rounded-2xl transition-all duration-500">
+              <div>
+                <img src="./imgs/تعديل-انظمه.png" alt="Card 1 Image"
+                  class="block w-full h-auto group-hover/card:scale-110 transition-all duration-500 relative">
+                <div
+                  class="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover/card:opacity-50 transition-opacity duration-500">
+                </div>
+              </div>
+              <div class="absolute top-2 right-2 bg-white flex flex-col p-2 rounded-lg">
+                <span>23</span>
+                <span>مارس</span>
+              </div>
+            </div>
+
+            <div class="px-8 mt-3 flex flex-col gap-4">
+              <p class="text-gray-600 text-sm font-semibold md:text-2xl mt-3">
+                كيف يمكن لأنظمة «تعليمنا» القضاء على الفوضى الإدارية في المدارس؟
+              </p>
+              <i class="fa-solid fas fa-share-alt cursor-pointer fa-beat text-slate-500"></i>
+              <p class="text-gray-400 text-sm">
+                تواجه العديد من المدارس تحديات كبيرة في إدارة عملياتها اليومية، حيث تعتمد الكثير منها على الأساليب
+                التقليدية في تنظيم شؤون الطلاب والمُ...
+              </p>
+
+              <span class="text-[#10a8e4] cursor-pointer inline-block group/two mb-5">
+                متابعه القراءة
+                <span class="opacity-0 group-hover/two:opacity-100 transition-opacity duration-500">...</span>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="card group/card text-center shadow-md rounded-lg hover:shadow-lg transition-all duration-500">
+            <div class="relative overflow-hidden rounded-2xl transition-all duration-500">
+              <div>
+                <img src="./imgs/3عقبات.png" alt="Card 1 Image"
+                  class="block w-full h-auto group-hover/card:scale-110 transition-all duration-500 relative">
+                <div
+                  class="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover/card:opacity-50 transition-opacity duration-500">
+                </div>
+              </div>
+              <div class="absolute top-2 right-2 bg-white flex flex-col p-2 rounded-lg">
+                <span>19</span>
+                <span>مارس</span>
+              </div>
+            </div>
+
+            <div class="px-8 mt-3 flex flex-col gap-4">
+              <p class="text-gray-600 text-sm font-semibold md:text-2xl mt-3">
+                كيفية التغلب على 3 عقبات كبيرة في مجال التكنولوجيا التعليمية في عام 2025؟
+              </p>
+              <i class="fa-solid fas fa-share-alt cursor-pointer fa-beat text-slate-500"></i>
+              <p class="text-gray-400 text-sm">
+                في الوقت الذي تواجه فيه المدارس تحديات تتعلّق بالميزانية والموارد، فإن الحل الوحيد لاستدامة التعلُّم
+                المدعوم بالتكنولوجيا التعليمية هو ...
+              </p>
+
+              <span class="text-[#10a8e4] cursor-pointer inline-block group/two mb-5">
+                متابعه القراءة
+                <span class="opacity-0 group-hover/two:opacity-100 transition-opacity duration-500">...</span>
+              </span>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      </div>
+
+
+      </div>
+
+    </section>
+
+    <!-- section 9 -->
+    <section>
+      <div class="container mx-auto py-10 flex flex-wrap items-center justify-center px-2 gap-9">
+        <span><img src="./imgs/one.png" alt="img-one" class="w-36"></span>
+        <span><img src="./imgs/two.png" alt="img-one" class="w-36"></span>
+        <span><img src="./imgs/three.png" alt="img-one" class="w-36"></span>
+        <span><img src="./imgs/four.png" alt="img-one" class="w-36"></span>
+        <span><img src="./imgs/five.png" alt="img-one" class="w-36"></span>
+        <span><img src="./imgs/six.png" alt="img-one" class="w-36"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center py-6 mt-20">
+    <p>&copy; 2025 جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
